@@ -5,3 +5,7 @@ variable "assumed_by_principals" {
     type    =   string
 }
 
+variable "tags" {
+    default = {}
+    type    =   map
+}
