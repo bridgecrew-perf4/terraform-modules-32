@@ -6,10 +6,8 @@ locals {
 
 
 data "aws_iam_policy_document" "sts-by-billing" {
-  provider = aws.billing
   statement {
     actions = ["sts:AssumeRole"]
-
     principals {
       type = "AWS"
       identifiers = var.assumed_by_principals
@@ -18,12 +16,7 @@ data "aws_iam_policy_document" "sts-by-billing" {
 }
 
 resource "aws_iam_role" "cloudcustodian" {
-  provider = aws.billing
   name = local.role_name
-  
   assume_role_policy = data.aws_iam_policy_document.sts-by-billing.json
-
-  tags = {
-    CreatedBy = "Terraform"
-  }
+  tags = local.tags
 }
