@@ -49,5 +49,5 @@ resource "aws_iam_policy" "custodian_autotagging" {
 
 resource "aws_iam_role_policy_attachment" "tagging_attachment" {
   role = aws_iam_role.cloudcustodian.name
-  policy_arn = aws_iam_policy.custodian_tagging.arn
+  policy_arn = aws_iam_policy.custodian_autotagging.arn
 }
