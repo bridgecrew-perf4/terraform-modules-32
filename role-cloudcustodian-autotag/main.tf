@@ -42,7 +42,7 @@ resource "aws_iam_role_policy_attachment" "readonly_attachment" {
 }
 
 resource "aws_iam_policy" "custodian_autotagging" {
-  name  = "cloud-custodian-tagging"
+  name  = "cloud-custodian-autotagging"
   path  = "/"
   policy = data.aws_iam_policy_document.tagging.json
 }
