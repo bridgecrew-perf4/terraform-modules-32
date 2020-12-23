@@ -12,6 +12,10 @@ data "aws_iam_policy_document" "sts-by-billing" {
       type = "AWS"
       identifiers = var.assumed_by_principals
     }
+    principals {
+      type        = "Service"
+      identifiers = ["lambda.amazonaws.com"]
+    }
   }
 }
 
