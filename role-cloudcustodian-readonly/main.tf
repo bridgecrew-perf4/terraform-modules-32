@@ -44,7 +44,10 @@ resource "aws_iam_role_policy_attachment" "readonly_attachment" {
   role = aws_iam_role.cloudcustodian.name
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
-
+resource "aws_iam_role_policy_attachment" "lambdabasic_attachment" {
+  role = aws_iam_role.cloudcustodian.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSLambdaBasicExecutionRole"
+}
 resource "aws_iam_policy" "custodian_tagging" {
   name  = "cloud-custodian-tagging"
   path  = "/"
